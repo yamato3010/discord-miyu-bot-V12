@@ -1,8 +1,7 @@
-# DiscordBotBase
+# MiyuBot
 
-GlitchでDiscordBotを作るためのベースです。
+私の友人が運営しているディスコードサーバーのために作ったBOTです。
 
+https://discord.gg/jnQPxtcJ
 
-## 詳細
-
-[誰でも作れる！Discord Bot（基礎編）](https://note.com/exteoi/n/nf1c37cb26c41)をお読みください。
+Discoed.js V12対応済み 通話通知は機能しなくなりました。
