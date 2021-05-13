@@ -4,4 +4,7 @@
 
 https://discord.gg/jnQPxtcJ
 
-Discoed.js V12対応済み 通話通知は機能しなくなりました。
+Discoed.js V12対応済み ~~通話通知は機能しなくなりました。~~
+
+2021/05/12 通話通知機能が復活しました。
+
