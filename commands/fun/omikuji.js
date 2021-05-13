@@ -3,11 +3,11 @@ const discord = require('discord.js');
 module.exports = class MeowCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'say',
+			name: 'omikuji',
 			
 			group: 'fun',
-			memberName: 'say',
-			description: '私に何か言ってほしいのですか？いいですよっ',
+			memberName: 'omikuji',
+			description: 'ご主人様！おみくじ、引いてみませんか？',
       
 		});
 	}
