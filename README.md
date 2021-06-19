@@ -2,7 +2,7 @@
 
 私の友人が運営しているディスコードサーバーのために作ったBOTです。
 
-https://discord.gg/jnQPxtcJ
+https://discord.gg/wrAutkVb
 
 Discoed.js V12対応済み ~~通話通知は機能しなくなりました。~~
 
