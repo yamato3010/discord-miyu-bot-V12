@@ -49,7 +49,7 @@ module.exports = class Vote extends cmd.Command {
     
     run(msg, {question, channel, time, detail}) {
       var emojis = ['✅','❌','🤔'];
-        var emb = new discord.RichEmbed()
+        var emb = new discord.MessageEmbed()
             .setTitle(question)
             .setDescription(detail)
             .setAuthor(msg.author.username, msg.author.displayAvatarURL)

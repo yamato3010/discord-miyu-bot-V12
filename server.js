@@ -2,12 +2,10 @@ const http = require('http');
 const querystring = require('querystring');
 const {discord,MessageEmbed} = require('discord.js');
 const { Menu } = require('discord.js-menu');
-//const Discord = require('discord.js');
-//const client = new discord.Client();
-//const noticeChannelId = [786526388836368404];
 const Commando = require('discord.js-commando');
 const voiceChannelNotice = "786526388836368404";
 const cmd = require('discord.js-commando');
+const { prefix } = require('./config.json');
 const path = require('path');
 const config = require( path.resolve( __dirname, "config.json" ) );
 const client = new cmd.CommandoClient({
@@ -89,15 +87,35 @@ client.login( process.env.DISCORD_BOT_TOKEN );
 
 client.on('ready', message =>{
   console.log('Bot準備完了～お仕事頑張りますよっ！');
+  
+  /*let time_message = [`この授業はしょーもねえ授業です。`, `この授業はまだまだ続きます`, `この授業は終わりません`,`ごめん！`,`授業おわったわｗ`,`ごめんねｗ`,`これはテストメッセージです`,`おなかがすきましたか？`,`いいえ、おなかはすいていません`,`windown 11 はよこいや`,`それなｗ`,`なにいってんだこいつ`];
+  
+  let i = 0;
+// 15秒ごとに更新
+  setInterval(() => {
+  
+    let channel = client.channels.cache.get('786221980650700800');
+    if ( i == 11 )
+    {
+      i = 0;
+    }
+    channel.send(time_message[i]);
+    i ++;
+    
+  }, 5000);
   //client.user.setPresence({ game: { name: '!m | 精一杯ご奉仕いたしますね♪' } });
+  */
+  
 });
+
 
 
 // List of available statuses
 let statuses = [
     `コマンドがわからなくなったら/m menuですっ`,
     `精一杯ご奉仕いたしますね♪`,
-    'discord.js V12 アップデート完了ですっ!'
+    'discord.js V12 アップデート完了ですっ!',
+    `このサーバーには現在${client.users.size}人います。`
     //{game: {name: `お仕えさせていただきます！`}, type: "PLAYING"}
 ];
 
@@ -117,11 +135,17 @@ setInterval(() => {
 }, 10000);
 
 
+
+
 client.on("guildMemberAdd", (member) => {
 
     let channel = client.channels.cache.get('787269819158102036');
+    //let random = Math.floor( Math.random() * arr.length);
+    channel.send(`おかえりなさいませ ${member.user}様！ ようこそPON WORLDへ！！\n <#786613511643332639>を御一読ください！ \n そのあと<#786897885286629387>でロール設定をお願いしますっ \n 何かわからないことがあったら <@&785532756800438303> ロールのついている人にDMをお願いします。`);
     console.log(`${member.user} さんが参加したみたい...`); 
-    channel.send(`おかえりなさいませ ${member.user}様！ ようこそPON WORLDへ！！\n <#786613511643332639>を御一読ください！ \n そのあと<#786897885286629387>でロール設定をお願いしますっ \n 何かわからないことがあったら <@&785532756800438303> ロールのついている人にDMをお願いします。`); 
+    //channel.send(arr[random]);
+    
+    
 });
 
 
@@ -152,16 +176,16 @@ client.on('message', message =>{
 
   }
   
-  if (message.content.match("/m omikuji")){
+  if (message.content.match(`${prefix} omikuji`)){
     let arr = ["おめでとうございます！大吉です！！いいことありそうです♪", "吉ですっ。悪くないと思います♪", "き、凶です...大丈夫です。ランダムで出しているだけなので...", "（おみくじはない！！）", "あれ？出てきませんね...", "(からっぽ！！)"];
     lottery(message.channel.id, arr);
     return;
   }
   
-  if (message.content.startsWith("/m say")) {
+  if (message.content.startsWith(`${prefix} say`)) {
       message.delete({ timeout: 0 })
       message.channel.send(message.content.slice(6, message.content.length));
-      //六文字以降を消してる？？
+     
       
    }
   
@@ -242,3 +266,4 @@ function lotteryReply(message, arr){
   let random = Math.floor( Math.random() * arr.length);
   sendReply(message, arr[random]);
 }
+
