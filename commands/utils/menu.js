@@ -114,6 +114,10 @@ module.exports = class MeowCommand extends Command {
         name:"/m omikuji",
         value:"ご主人様！おみくじ、引いてみませんか？"
       },
+      {
+        name:"/m weather",
+        value:"今日のお天気、気になりませんか？"
+      },
     ]
                 
             }),
